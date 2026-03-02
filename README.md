@@ -8,11 +8,10 @@ Ce dépôt contient notre projet de **Graph Machine Learning (GML)** : une analy
 - ALALI
 
 ## 📁 Contenu du dépôt
-- `DHARDEMARE_VAUTERIN_ALALI.ipynb` : notebook principal (utilisable pour la présentation)
-- `twitter_ego/twitter/` : dossier des données (fichiers `.edges`, `.feat`, `.egofeat`, `.circles`)
-- `twitter_ego/twitter/summary_tables/` : **sorties générées** (CSV + figures)
+- `GML_DHARDEMARE_VAUTERIN_ALALI.ipynb` : notebook principal (version la plus à jour)
+- `old_versions/` : versions historiques (notebooks et scripts plus anciens)
 
-> ⚠️ **Attention** : le dossier de données peut être volumineux. Selon les consignes, il peut être fourni séparément ou via un lien si nécessaire.
+> ℹ️ Le dossier de données `twitter_ego/twitter/` n’est pas versionné dans ce dépôt. Il doit être ajouté localement avant exécution du notebook/script.
 
 ## 🎯 Objectifs
 1. Charger plusieurs ego-réseaux Twitter
@@ -31,8 +30,7 @@ Chaque ego-réseau est défini par des fichiers (par identifiant `ID`) :
 - `ID.feat`, `ID.egofeat` : attributs de nœuds (optionnel dans notre analyse)
 - `ID.circles` : cercles/communautés “ground truth” (optionnel / extension)
 
-Dans notre pipeline, nous utilisons principalement les **arêtes** (`.edges`).  
-Certaines analyses sont faites sur la version **non orientée** du graphe (ex. clustering, communautés, embeddings).
+Dans notre pipeline, nous utilisons principalement les **arêtes** (`.edges`). Certaines analyses sont faites sur la version **non orientée** du graphe (ex. clustering, communautés, embeddings).
 
 ## ⚙️ Installation & dépendances
 ### Environnement recommandé
@@ -48,7 +46,25 @@ Certaines analyses sont faites sur la version **non orientée** du graphe (ex. c
 - `torch` (PyTorch)
 
 Exemple d’installation :
+
 ```bash
 pip install pandas numpy networkx matplotlib seaborn scikit-learn scipy node2vec
 # Bonus GCN:
 pip install torch torchvision torchaudio
+```
+
+## ▶️ Exécution
+### Notebook (recommandé)
+```bash
+jupyter notebook GML_DHARDEMARE_VAUTERIN_ALALI.ipynb
+```
+
+### Script historique
+```bash
+python old_versions/twitter_ego_analysis.py --help
+```
+
+## ✅ Vérifications rapides à faire avant exécution
+- Vérifier la présence du dossier de données : `twitter_ego/twitter/`
+- Vérifier que les fichiers `.edges` sont bien présents pour plusieurs IDs
+- Installer les dépendances avant de lancer le notebook/script
